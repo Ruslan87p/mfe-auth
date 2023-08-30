@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild(routes)
   ],
   declarations: [HomeComponent],
-  // exports: [HomeComponent],
   providers: [HomeService]
 })
 export class HomeModule {}
