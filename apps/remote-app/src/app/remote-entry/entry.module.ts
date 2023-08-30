@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { RemoteEntryComponent } from './entry.component';
 import { remoteRoutes } from './entry.routes';
+import { HomeModule } from '@workspace/home';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [RemoteEntryComponent],
-  imports: [CommonModule, RouterModule.forChild(remoteRoutes)],
+  imports: [CommonModule, HttpClientModule, HomeModule, RouterModule.forChild(remoteRoutes)],
   providers: [],
 })
 export class RemoteEntryModule {}
