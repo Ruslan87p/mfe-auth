@@ -1,0 +1,61 @@
+<section class="main-wrapper">
+
+  <form  [formGroup]="registrationForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="gender">
+      <div class="male-radio">
+        <input id="male"
+                type="radio"
+                class="input"
+                value="male"
+                name="gender"
+                formControlName="gender">
+          <label class="custom-control-label" for="male" for="male">
+            <img
+              src="./../../assets//man.svg"
+              alt="male" />
+          </label>
+      </div>
+      <div class="female-radio">
+        <input id="female"
+                class="input"
+                type="radio"
+                value="female"
+                name="gender"
+                formControlName="gender">
+          <label class="custom-control-label" for="female">
+            <img
+              src="./../../assets//women.svg"
+              alt="female" />
+          </label>
+      </div>
+    </div>
+    <div class="text-inputs">
+      <label for="name" class="name-label">Name
+        <input id="name" type="text" placeholder="Insert your Name" formControlName="name">
+      </label>
+
+      <label for="surname" class="surname-label">Surname
+        <input id="surname" type="text" placeholder="Insert your Surname" formControlName="surname">
+      </label>
+
+      <label for="email" class="email-label">Email
+        <input id="email" type="email" placeholder="Insert your email" formControlName="email">
+      </label>
+
+      <label for="password" class="password-label">Password
+        <input id="password" type="text" placeholder="Insert your password" formControlName="password">
+      </label>
+
+    </div>
+    <div></div>
+    <!-- Showing error method -->
+    <div *ngIf="isSubmitted && !registrationForm.valid">
+      <p>Please select either value</p>
+    </div>
+    <div class="submit-button">
+      <button [disabled]="!registrationForm.valid" class="submit" type="submit">Submit</button>
+    </div>
+
+  </form>
+
+</section>

@@ -1,0 +1,24 @@
+<section class="main-wrapper">
+
+  <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="text-inputs">
+
+      <label for="email" class="email-label">Email
+        <input id="email" type="email" placeholder="Insert your email" formControlName="email">
+      </label>
+
+      <label for="password" class="password-label">Password
+        <input id="password" type="text" placeholder="Insert your password" formControlName="password">
+      </label>
+
+    </div>
+    <div></div>
+
+    <div class="submit-button">
+      <button [disabled]="!loginForm.valid" class="submit" type="submit">Log in</button>
+    </div>
+
+  </form>
+
+</section>
