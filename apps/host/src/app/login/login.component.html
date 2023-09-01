@@ -3,22 +3,48 @@
   <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
 
     <div class="text-inputs">
-
       <label for="email" class="email-label">Email
         <input id="email" type="email" placeholder="Insert your email" formControlName="email">
       </label>
-
       <label for="password" class="password-label">Password
         <input id="password" type="text" placeholder="Insert your password" formControlName="password">
       </label>
-
     </div>
-    <div></div>
 
-    <div class="submit-button">
-      <button [disabled]="!loginForm.valid" class="submit" type="submit">Log in</button>
+    <div class="buttons">
+      <button [disabled]="!loginForm.valid" class="button submit" type="submit">Login</button>
+      <button class="button creare-account"><a routerLink="/registration">Create account</a></button>
     </div>
 
   </form>
 
+  <ng-lottie
+    class="animation"
+    [options]="options"
+    width="600px"
+    height="500px"
+    (animationCreated)="animationCreated($event)">
+  </ng-lottie>
+
+
 </section>
+
+
+
+<!-- <ng-lottie
+  width="600px"
+  height="500px"
+  containerClass="moving-box another-class"
+  [styles]="styles"
+  [options]="options"
+  (animationCreated)="animationCreated($event)"
+  (configReady)="configReady()"
+  (dataReady)="dataReady()"
+  (domLoaded)="domLoaded()"
+  (enterFrame)="enterFrame($event)"
+  (segmentStart)="segmentStart($event)"
+  (complete)="complete($event)"
+  (loopComplete)="loopComplete($event)"
+  (destroy)="destroy($event)"
+  (error)="error($event)"
+></ng-lottie> -->

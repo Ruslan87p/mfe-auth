@@ -44,11 +44,10 @@ export class AuthService {
     );
   }
 
-  register(registrationForm: any): Observable<any> {
+  registration(registrationForm: any): Observable<any> {
     const { name, email, password, surname, gender } = registrationForm;
-    console.log(registrationForm, 'registrationForm SVC')
     return this.http.post(
-      AUTH_API + 'signup',
+      AUTH_API + 'registration',
       {
         gender,
         name,

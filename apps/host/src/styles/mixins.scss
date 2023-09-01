@@ -1,0 +1,14 @@
+// @mixin for-desktop-up {
+//   @media (min-width: 1024px) { @content; }
+// }
+
+
+@mixin input {
+  width: 300px;
+  padding-left: 20px;
+  height: 40px;
+  border-radius: 25px;
+  margin-top: 5px;
+  border: 2px solid #EDF1F3;
+  outline: none;
+}

@@ -18,6 +18,4 @@ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean 
   }
   return true;
 }
-
-
 }

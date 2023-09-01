@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+// COMMON STYLES
+input:focus {
+  outline: 0;
+  border-color: rgb(21, 137, 238);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 3px #0070d2;
+}
+::placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}

@@ -15,6 +15,12 @@
         "main": "apps/host/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/host/tsconfig.app.json",
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "apps/host/src/styles"
+          ]
+        },
+        "inlineStyleLanguage": "scss",
         "assets": ["apps/host/src/favicon.ico", "apps/host/src/assets"],
         "styles": ["apps/host/src/styles.scss"],
         "scripts": [],
@@ -59,7 +65,8 @@
           "browserTarget": "host:build:production"
         },
         "development": {
-          "browserTarget": "host:build:development"
+          "browserTarget": "host:build:development",
+          "proxyConfig": "apps/host/src/proxy.config.json"
         }
       },
       "defaultConfiguration": "development",

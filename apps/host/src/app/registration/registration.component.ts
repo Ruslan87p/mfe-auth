@@ -31,7 +31,7 @@ export class RegistrationComponent {
     onSubmit() {
       // console.log(this.registrationForm.value, 'form submit');
       this.isSubmitted = true;
-      this.authService.register(this.registrationForm.value).subscribe({
+      this.authService.registration(this.registrationForm.value).subscribe({
         next: data => {
           console.log(data);
         },

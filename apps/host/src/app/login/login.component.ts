@@ -3,6 +3,8 @@ import { AuthService } from '../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { AnimationOptions } from 'ngx-lottie';
+import { AnimationItem } from 'lottie-web';
 
 
 @Component({
@@ -18,17 +20,22 @@ export class LoginComponent {
 
   loading = false;
   submitted = false;
-  returnUrl!: string;
   error = '';
+
+  options: AnimationOptions = {
+    path: '../../assets/animation/animation-loading.json',
+  };
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
 
 
   constructor(
       public fb: FormBuilder,
       private router: Router,
       private authService: AuthService
-  ) {
-    localStorage.setItem('token', 'token');
-  }
+  ) {}
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
@@ -44,17 +51,15 @@ export class LoginComponent {
           return;
       }
       this.loading = true;
-      this.authService.login(this.loginForm.value)
-          .pipe(first())
-          .subscribe(
-              data => {
-                console.log(data, 'DATA RES')
-                  // this.router.navigate([this.returnUrl]);
-              },
-              error => {
-                  this.error = error;
-                  this.loading = false;
-              });
+      this.authService.login(this.loginForm.value).subscribe({
+        next: data => {
+          localStorage.setItem('token', data.token);
+          this.router.navigate(['/remote']);
+        },
+        error: err => {
+          console.log(err, 'ERRRROOR')
+        }
+      });
   }
 
 }

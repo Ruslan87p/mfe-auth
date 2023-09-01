@@ -9,6 +9,12 @@ import { LoginModule } from './login/login.module';
 import { RegistrationModule } from './registration/registration.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
+// import { LottieModule } from 'ngx-lottie';
+// import player from 'lottie-web';
+
+// export function playerFactory() {
+//   return player;
+// }
 
 @NgModule({
   declarations: [
