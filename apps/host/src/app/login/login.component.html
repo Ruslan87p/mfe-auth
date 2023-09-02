@@ -3,17 +3,30 @@
   <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
 
     <div class="text-inputs">
+
       <label for="email" class="email-label">Email
         <input id="email" type="email" placeholder="Insert your email" formControlName="email">
+        <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="alert">
+          Missing email
+        </div>
+        <div *ngIf="incorrectEmail && incorrectPass" class="alert">
+          Incorrect email or password
+        </div>
       </label>
       <label for="password" class="password-label">Password
         <input id="password" type="text" placeholder="Insert your password" formControlName="password">
+        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert">
+          Missing password
+        </div>
+        <div *ngIf="incorrectEmail && incorrectPass" class="alert">
+          Incorrect email or password
+        </div>
       </label>
     </div>
 
     <div class="buttons">
       <button [disabled]="!loginForm.valid" class="button submit" type="submit">Login</button>
-      <button class="button creare-account"><a routerLink="/registration">Create account</a></button>
+      <button class="button creare-account"><a routerLink="/registration">Create an account</a></button>
     </div>
 
   </form>
@@ -21,11 +34,10 @@
   <ng-lottie
     class="animation"
     [options]="options"
-    width="600px"
-    height="500px"
+    [width]="lottieWidth"
+    [height]="lottieHeight"
     (animationCreated)="animationCreated($event)">
   </ng-lottie>
-
 
 </section>
 

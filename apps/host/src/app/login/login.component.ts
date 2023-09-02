@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AnimationOptions } from 'ngx-lottie';
 import { AnimationItem } from 'lottie-web';
 
@@ -11,16 +10,26 @@ import { AnimationItem } from 'lottie-web';
   selector: 'workspace-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent {
-
-
+  // var w = window.innerWidth;
+  // var h = window.innerHeight;
+  // OR
+  // const width  = window.innerWidth || document.documentElement.clientWidth ||
+  // document.body.clientWidth;
+  // const height = window.innerHeight|| document.documentElement.clientHeight||
+  // document.body.clientHeight;
+  // console.log(width, height);
+  lottieWidth!: '500px';
+  lottieHeight!: '600px';
   password!: string;
   email!: string;
-
+  loginForm: FormGroup;
   loading = false;
   submitted = false;
-  error = '';
+  incorrectEmail = false;
+  incorrectPass = false;
 
   options: AnimationOptions = {
     path: '../../assets/animation/animation-loading.json',
@@ -35,12 +44,13 @@ export class LoginComponent {
       public fb: FormBuilder,
       private router: Router,
       private authService: AuthService
-  ) {}
+  ) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+    });
+  }
 
-  loginForm = this.fb.group({
-    email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-    password: ['', [Validators.required, Validators.minLength(4)]],
-  });
 
 
 
@@ -57,9 +67,19 @@ export class LoginComponent {
           this.router.navigate(['/remote']);
         },
         error: err => {
-          console.log(err, 'ERRRROOR')
+          this.incorrectEmail = true;
+          this.incorrectPass = true;
+          this.hideErrors()
         }
       });
   }
+
+  hideErrors() {
+    setTimeout( () => {
+      this.incorrectEmail = false;
+      this.incorrectPass = false;
+    },5000)
+  }
+
 
 }

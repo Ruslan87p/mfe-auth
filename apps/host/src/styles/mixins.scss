@@ -1,14 +1,52 @@
-// @mixin for-desktop-up {
-//   @media (min-width: 1024px) { @content; }
-// }
+
+// display size
+$xsBreakpoint: 576px;
+$smBreakpoint: 768px;
+$mdBreakpoint: 1024px;
+$lgBreakpoint: 1290px;
+$xlBreakpoint: 1440px;
+
+@mixin xs-breakpoint {
+  @media only screen and (max-width: $xsBreakpoint){
+    @content
+  }
+};
+@mixin sm-breakpoint {
+  @media only screen and (max-width: $smBreakpoint){
+    @content
+  }
+};
+  @mixin md-breakpoint {
+  @media only screen and (max-width: $mdBreakpoint){
+    @content
+  }
+};
+  @mixin lg-breakpoint {
+  @media only screen and (max-width: $lgBreakpoint){
+    @content
+  }
+};
+  @mixin xl-breakpoint {
+  @media only screen and (max-width: $xlBreakpoint){
+    @content
+  }
+};
+// display size
 
 
+
+// common ellements
 @mixin input {
-  width: 300px;
   padding-left: 20px;
   height: 40px;
   border-radius: 25px;
   margin-top: 5px;
   border: 2px solid #EDF1F3;
   outline: none;
+};
+@mixin alert {
+  padding-top: 10px;
+  font-size: 12px;
+  color: coral;
 }
+// common ellements

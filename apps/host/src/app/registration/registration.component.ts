@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 
 
 
@@ -9,11 +11,24 @@ import { Router } from '@angular/router';
   selector: 'workspace-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RegistrationComponent {
 
   isSubmitted = false;
   private tokenKey = 'token';
+  lottieWidth = '500px';
+  lottieHeight = '600px';
+
+
+  options: AnimationOptions = {
+    path: '../../assets/animation/animation-registration.json',
+  };
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
+
   constructor(
     public fb: FormBuilder,
     private authService: AuthService,

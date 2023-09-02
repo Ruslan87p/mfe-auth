@@ -4,8 +4,12 @@ import { RegistrationComponent } from './registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './registration.routing';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
-
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -14,6 +18,7 @@ import { routes } from './registration.routing';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    LottieModule.forRoot({ player: playerFactory }),
     RouterModule.forChild(routes),
   ]
 })

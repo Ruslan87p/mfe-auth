@@ -1,45 +1,54 @@
+@import '../styles/variables';
+@import '../styles/mixins.scss';
 
-.input {
+
+input[type=radio] {
   transform: translate(10px, 10px);
   position: absolute;
 }
-::placeholder {
-  padding-left: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-}
-
-input[type=radio]:checked + label>img {
-  // border: 1px solid #fff;
-  // box-shadow: 0 0 3px 3px #090;
-}
-
+// input[type=radio]:checked + label>img {
+//   // border: 1px solid #fff;
+//   // box-shadow: 0 0 3px 3px #090;
+// }
 input[type=radio] + label>img {
   width: 150px;
   height: 150px;
   box-sizing: border-box;
   border-radius: 5px;
   transition: 500ms all;
+  border: 1px solid lightgray;
+  cursor: pointer;
 }
 
-
+.animation {
+  @include sm-breakpoint {
+    display: none;
+  }
+}
 .main-wrapper {
+  padding: 15px;
+  box-sizing: border-box;
   width: 100%;
+  max-width: 1224px;
   height: 100%;
-  display: flex;
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
   align-items: center;
-  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
   font-family: 'Montserrat', sans-serif;
+  @include sm-breakpoint {
+    grid-template-columns: repeat(1, 1fr);
+  }
   form {
-    padding: 20px;
-    width: 600px;
-    height: auto;
-    background-color: #3BA99F;
+    display: grid;
+    max-width: 300px;
+    width: 100%;
     .gender {
       width: auto;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       .female-radio, .male-radio {
         width: 155px;
       }
@@ -68,38 +77,40 @@ input[type=radio] + label>img {
       justify-content: center;
       flex-direction: column;
       label {
+        width: 100%;
         display: flex;
         flex-direction: column;
-        padding-top: 10px;
+        margin-top: 20px;
         font-size: 14px;
-        color: white;
+        color: #2d2d2d;
         input {
-          width: 300px;
-          height: 35px;
-          border: none;
-          border-radius: 5px;
-          margin-top: 5px;
-        }
+          @include input;
+        };
+        .alert {
+          @include alert;
+        };
       }
     }
     .submit-button {
-      // width: 400px;
       display: flex;
-      justify-content: center;
+      justify-content: start;
       align-items: center;
+      margin-top: 35px;
       .submit {
         font-size: 16px;
         display: flex;
-        width: 305px;
         height: 40px;
+        padding: 0;
         color: white;
         display: flex;
         align-items: center;
         justify-content: center;
         border: none;
-        border-radius: 5px;
-        background-color: #3F87C4;
-        margin-top: 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        padding: 0 30px;
+        background-color: #3991EB;
+        color: white;
       }
     }
   }

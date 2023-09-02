@@ -1,5 +1,10 @@
 // COMMON STYLES
-input:focus {
+body {
+ margin: 0;
+ padding: 0;
+}
+input[type=text]:focus,
+input[type=email]:focus {
   outline: 0;
   border-color: rgb(21, 137, 238);
   background-color: rgb(255, 255, 255);
@@ -8,4 +13,5 @@ input:focus {
 ::placeholder {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
+  color: rgb(198, 198, 198);
 }
