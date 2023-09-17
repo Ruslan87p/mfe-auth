@@ -47,7 +47,7 @@
       </label>
 
     </div>
-    <div></div>
+
     <!-- Showing error method -->
     <div *ngIf="isSubmitted && !registrationForm.valid">
       <p>Please select either value</p>
@@ -58,12 +58,8 @@
 
   </form>
 
-  <ng-lottie
-  class="animation"
-  [options]="options"
-  [width]="lottieWidth"
-  [height]="lottieHeight"
-  (animationCreated)="animationCreated($event)">
-</ng-lottie>
+  <div class="img-bg">
+    <img src="./../../assets/reg-img.svg" alt="">
+  </div>
 
 </section>

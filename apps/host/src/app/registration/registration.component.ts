@@ -17,13 +17,6 @@ export class RegistrationComponent {
 
   isSubmitted = false;
   private tokenKey = 'token';
-  lottieWidth = '500px';
-  lottieHeight = '600px';
-
-
-  options: AnimationOptions = {
-    path: '../../assets/animation/animation-registration.json',
-  };
 
   animationCreated(animationItem: AnimationItem): void {
     console.log(animationItem);

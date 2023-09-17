@@ -14,13 +14,14 @@ workspace-login {
   justify-content: center;
   align-items: center;
   height: 100vh;
+
 }
 
 .main-wrapper {
-  padding: 15px;
+  // padding: 15px;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1224px;
+  // max-width: 1224px;
   height: 100%;
   margin: 0 auto;
   display: grid;
@@ -99,6 +100,11 @@ workspace-login {
         transition: ease-in-out all 150ms;
       }
     }
+  }
+  img {
+    background-origin: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }
 

@@ -26,11 +26,9 @@ input[type=radio] + label>img {
   }
 }
 .main-wrapper {
-  padding: 15px;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1224px;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   display: grid;
   justify-items: center;
@@ -49,9 +47,6 @@ input[type=radio] + label>img {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      .female-radio, .male-radio {
-        width: 155px;
-      }
       input[type='radio'] {
         width: 15px;
         height: 15px;
@@ -112,6 +107,17 @@ input[type=radio] + label>img {
         background-color: #3991EB;
         color: white;
       }
+    }
+  }
+  .img-bg {
+    width: 100%;
+    height: 100%;
+    background: #CFE1ED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 400px;
     }
   }
 }
